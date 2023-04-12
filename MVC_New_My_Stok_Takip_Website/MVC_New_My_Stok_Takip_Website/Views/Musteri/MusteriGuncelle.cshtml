@@ -1,0 +1,24 @@
+﻿@model MVC_New_My_Stok_Takip_Website.Models.Entity.musteriler
+@{
+    ViewBag.Title = "MusteriGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Müşteri Güncelleme Sayfasına Hoş Geldiniz</h2>
+<br />
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{
+ <div class="form-group">
+    @Html.Label("ID")
+    @Html.TextBoxFor(m => m.MUSTERIID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Soyadı")
+    @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Müşteri Güncelle</button>
+  </div>
+}
+

@@ -1,0 +1,73 @@
+﻿@using MVC_New_My_Stok_Takip_Website.Models.Entity
+@model List<satislar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Satış Yapma Hoş Geldiniz</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Müşteri Adı</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Silme</th>
+    </tr>
+    @foreach (var satis in Model)
+    {
+        <tr>
+            <td>@satis.URUN</td>
+            <td>@satis.MUSTERI</td>
+            <td>@satis.ADET</td>
+            <td>@satis.FIYAT</td>
+            <td><a href="/Satis/Sil/@satis.SATISID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<br />
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modal1">
+    Satış Yap
+</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Ekranına Hoş Geldiniz</h2>
+            </div>
+            <form method="post" action="/Satis/SatisYap">
+                <div class="modal-body">
+                    <label>
+                        Ürün Adı
+                    </label>
+                    <input type="text" name="URUN" class="form-control" />
+                    <br />
+                    <label>
+                        Müşteri Adı
+                    </label>
+                    <input type="text" name="MUSTERI" class="form-control" />
+                    <br />
+                    <label>
+                        Adet
+                    </label>
+                    <input type="text" name="ADET" class="form-control" />
+                    <br />
+                    <label>
+                        Fiyat
+                    </label>
+                    <input type="text" name="FIYAT" class="form-control" />
+                    <br />
+                    <button type="submit" class="btn btn-info">
+                        Satış Yap
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        Vazgeç
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+

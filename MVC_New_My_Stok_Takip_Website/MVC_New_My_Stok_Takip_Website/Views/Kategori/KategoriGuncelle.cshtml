@@ -1,0 +1,21 @@
+﻿@model MVC_New_My_Stok_Takip_Website.Models.Entity.kategoriler
+@{
+    ViewBag.Title = "KategoriGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Kategori Güncelleme Sayfasına Hoş Geldiniz</h2>
+<br />
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("ID")
+        @Html.TextBoxFor(m => m.KATEGORIID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(m => m.KATEGORIAD, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-warning">Kategori Güncelle</button>
+    </div>
+}
+

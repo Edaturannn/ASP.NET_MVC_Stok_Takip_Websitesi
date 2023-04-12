@@ -1,0 +1,34 @@
+﻿@model MVC_New_My_Stok_Takip_Website.Models.Entity.urunler
+@{
+    ViewBag.Title = "UrunGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Ürün Güncelleme Sayfasına Hoş Geldiniz</h2>
+<br />
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("ID")
+    @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control" })
+    <br />
+    @Html.Label("Marka")
+    @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ürün Kategori")
+    @Html.TextBoxFor(m => m.URUNKATEGORI, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })
+    <br />
+    @Html.Label("Stok")
+    @Html.TextBoxFor(m => m.STOK, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Ürün Güncelle</button>
+</div>
+}
+
+

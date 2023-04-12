@@ -1,0 +1,33 @@
+﻿@using MVC_New_My_Stok_Takip_Website.Models.Entity
+@model PagedList.IPagedList<kategoriler>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Kategoriler Sayfasına Hoş Geldiniz</h2>
+<br />
+
+<table class="table table-hover">
+    <tr>
+        <th>Kategori Adı</th>
+        <th>Güncelleme</th>
+        <th>Silme</th>
+    </tr>
+    @foreach (var kategori in Model)
+    {
+        <tr>
+            <td>@kategori.KATEGORIAD</td>
+            <td><a href="/Kategori/KategoriGuncelle/@kategori.KATEGORIID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Kategori/Sil/@kategori.KATEGORIID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<br />
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<br />
+<a href="/Kategori/Ekle" class="btn btn-info">Yeni Kategori Ekle</a>
+<br />
+

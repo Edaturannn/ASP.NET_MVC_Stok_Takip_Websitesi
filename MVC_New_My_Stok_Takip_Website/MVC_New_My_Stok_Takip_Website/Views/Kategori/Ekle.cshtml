@@ -1,0 +1,17 @@
+﻿@model MVC_New_My_Stok_Takip_Website.Models.Entity.kategoriler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Yeni Kategori Ekleme Sayfasına Hoş Geldiniz</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Adı</label>
+        @Html.DropDownListFor(m => m.KATEGORIAD, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Yeni Kategori Ekle</button>
+</form>
+

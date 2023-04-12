@@ -1,0 +1,41 @@
+﻿@using MVC_New_My_Stok_Takip_Website.Models.Entity
+@model PagedList.IPagedList<urunler>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Ürünler Sayfasına Hoş Geldiniz</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Marka</th>
+        <th>Ürün Kategori</th>
+        <th>Fiyat</th>
+        <th>Stok</th>
+        <th>Güncelleme</th>
+        <th>Silme</th>
+    </tr>
+    @foreach (var urun in Model)
+    {
+        <tr>
+            <td>@urun.URUNAD</td>
+            <td>@urun.MARKA</td>
+            <td>@urun.URUNKATEGORI</td>
+            <td>@urun.FIYAT</td>
+            <td>@urun.STOK</td>
+            <td><a href="/Urun/UrunGuncelle/@urun.URUNID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Urun/Sil/@urun.URUNID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<br />
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<br />
+<a href="/Urun/Ekle" class="btn btn-info">Yeni Ürün Ekle</a>
+<br />
+<br />
+

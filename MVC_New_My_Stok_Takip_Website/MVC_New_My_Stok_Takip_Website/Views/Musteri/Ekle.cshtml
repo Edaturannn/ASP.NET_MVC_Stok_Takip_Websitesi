@@ -1,0 +1,22 @@
+﻿@model MVC_New_My_Stok_Takip_Website.Models.Entity.musteriler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Yeni Müşteri Ekleme Sayfasına Hoş Geldiniz</h2>
+<br />
+<form class="form-group" method="post">
+    <div>
+        <label>Müşteri Adı</label>
+        <input type="text" class="form-control" name="MUSTERIAD">
+        @Html.ValidationMessageFor(x => x.MUSTERIAD, "", new { @style = "color:red" })
+        <br />
+        <label>Müşteri Soyadı</label>
+        <input type="text" class="form-control" name="MUSTERISOYAD" />
+        @Html.ValidationMessageFor(x => x.MUSTERISOYAD, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Yeni Müşteri Ekle</button>
+</form>
+

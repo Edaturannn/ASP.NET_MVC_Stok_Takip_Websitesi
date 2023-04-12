@@ -1,0 +1,35 @@
+﻿@using MVC_New_My_Stok_Takip_Website.Models.Entity
+@model PagedList.IPagedList<musteriler>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Müşteriler Sayfasına Hoş Geldiniz</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Güncelleme</th>
+        <th>Silme</th>
+    </tr>
+    @foreach (var musteri in Model)
+    {
+        <tr>
+            <td>@musteri.MUSTERIAD</td>
+            <td>@musteri.MUSTERISOYAD</td>
+            <td><a href="/Musteri/MusteriGuncelle/@musteri.MUSTERIID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Musteri/Sil/@musteri.MUSTERIID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<br />
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<br />
+<a href="/Musteri/Ekle" class="btn btn-info">Yeni Müşteri Ekle</a>
+<br />
+
+
